@@ -10,6 +10,11 @@
     "type": "git",
     "url": "git://github.com/Vilango/node-webkit-auto-updater.git"
   },
+  "dependencies": {
+    "underscore": "*",
+    "fibers": "1.0.1",
+    "request":"~2.40.0"
+  },
   "devDependencies": {
     "jasmine-node": ">= 1.14.5"
   },
