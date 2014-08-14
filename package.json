@@ -1,5 +1,5 @@
 {
-  "name": "node-webkit-mac-updater",
+  "name": "node-webkit-auto-updater",
   "description": "Update your node-webkit based apps with ease",
   "keywords": [
     "node-webkit",

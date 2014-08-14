@@ -5,11 +5,11 @@ var fs = require('fs-extra');
 var exec = require('child_process').exec;
 
 //var u = new Updater({source: {mac: "http://downloads.sourceforge.net/project/git-osx-installer/git-2.0.1-intel-universal-snow-leopard.dmg?r=http%3A%2F%2Fgit-scm.com%2Fdownload%2Fmac&ts=1407942206&use_mirror=freefr"} });
-some_js_url = "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js"
-some_github_file_url = "https://raw.githubusercontent.com/Vilango/node-webkit-auto-updater/master/spec/Test.dmg"
-some_win_file_url = "http://download.microsoft.com/download/9/A/8/9A8FCFAA-78A0-49F5-8C8E-4EAE185F515C/Windows6.1-KB917607-x86.msu"
-some_dmg_file_url = "http://download.microsoft.com/download/9/A/8/9A8FCFAA-78A0-49F5-8C8E-4EAE185F515C/Windows6.1-KB917607-x86.msu"
-huge_dmg_file_url = "http://www.greenheartgames.com/files_public/GameDevTycoonDEMO-1.3.9.dmg"
+some_js_url = "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js";
+some_github_file_url = "https://raw.githubusercontent.com/Vilango/node-webkit-auto-updater/master/spec/Test.dmg";
+some_win_file_url = "http://download.microsoft.com/download/9/A/8/9A8FCFAA-78A0-49F5-8C8E-4EAE185F515C/Windows6.1-KB917607-x86.msu";
+some_dmg_file_url = "http://download.microsoft.com/download/9/A/8/9A8FCFAA-78A0-49F5-8C8E-4EAE185F515C/Windows6.1-KB917607-x86.msu";
+huge_dmg_file_url = "http://www.greenheartgames.com/files_public/GameDevTycoonDEMO-1.3.9.dmg";
 
 describe("updater.isFileUrl", function () {
   it("should correctly detect js file url", function () {
