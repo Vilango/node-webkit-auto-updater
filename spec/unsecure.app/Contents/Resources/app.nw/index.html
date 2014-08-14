@@ -1,0 +1,97 @@
+<html>
+<head>
+<title>updater</title>
+</head>
+<body>
+<div id="version"></div>
+<div id="loaded"></div>
+<script>
+  var gui = require('nw.gui');
+  var copyPath, execPath;
+  if(gui.App.argv.length){
+    copyPath = gui.App.argv[0];
+    execPath = gui.App.argv[1];
+  }
+
+
+
+  //download new version of app in tmp
+  //unpack
+  //run updater
+  //updater will copy itself to origin directory
+  //updater will run app
+  var pkg = require('./package.json');
+  var request = require('request');
+  var path = require('path');
+  var os = require('os');
+  var fs = require('fs');
+  var k = 0;
+  var d = false;
+  var updater = require('./updater.js');
+  var upd = new updater(pkg);
+  var newVersionCheckIntervalId = null;
+  var tryingForNewVersion = false;
+
+  if(!copyPath){
+    document.getElementById('version').innerHTML = 'current version ' + pkg.version;
+    newVersionCheckIntervalId = setInterval(function(){
+      if(!d && !tryingForNewVersion) {
+          tryingForNewVersion = true; //lock
+          upd.checkNewVersion(newVersionAvailable);
+      }
+    }, 500);
+  } else {
+    console.log("I will copy from", path.resolve(process.cwd(),'../../..'));
+    console.log("I will compy to", copyPath);
+    document.getElementById('version').innerHTML = 'copying app';
+    upd.install(copyPath, newAppInstalled);
+    
+    function newAppInstalled(err){
+      if(err){
+        console.log(err);
+        return;
+      }
+      upd.run(execPath, null, {});
+      process.exit();
+    }
+  }
+
+  function newVersionAvailable(err, manifest){
+    tryingForNewVersion = false; //unlock
+    if(err || d){
+      console.log(err);
+      clearInterval(newVersionCheckIntervalId);
+      return Error(err);
+    }
+    d = true;
+    clearInterval(newVersionCheckIntervalId);
+    var loaded = 0;
+    var newVersion = upd.download(newVersionDownloaded);
+    newVersion.on('data', function(chunk){
+      loaded+=chunk.length;
+      document.getElementById('loaded').innerHTML = "New version loading " + Math.floor(loaded / 1024) + 'kb';
+    })
+  }
+
+  function newVersionDownloaded(err, filename){
+    if(err){
+      console.log(err)
+      return Error(err);
+    }
+    document.getElementById('loaded').innerHTML = "unpacking: " + filename;
+    upd.unpack(filename, newVersionUnpacked);
+  }
+
+  function newVersionUnpacked(err, newAppPath){
+    if(err){
+      console.log(err)
+      return Error(err);
+    }
+    var runner = upd.runInstaller(newAppPath, [upd.getAppPath(), upd.getAppExec()],{});
+    process.exit();
+  }
+
+
+</script>
+</body>
+</html>

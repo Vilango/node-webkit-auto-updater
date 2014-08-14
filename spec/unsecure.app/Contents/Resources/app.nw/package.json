@@ -1,0 +1,23 @@
+{
+    "name": "updapp",
+    "version": "0.0.2",
+    "description": "",
+    "author": "Eldar Djafarov <djkojb@gmail.com>",
+    "license": "MIT",
+    "manifestUrl": "http://localhost:60741/package.json",
+    "packages": {
+        "mac": "http://localhost:60741/releases/updapp/mac/updapp.dmg",
+        "win": "http://localhost:60741/releases/updapp/win/updapp.zip",
+        "linux32": "http://localhost:60741/releases/updapp/linux32/updapp.tar.gz",
+        "linux64": "http://localhost:60741/releases/updapp/linux64/updapp.tar.gz"
+    },
+    "window": {
+        "toolbar": true
+    },
+    "main": "app://updapp/index.html",
+    "dependencies": {
+        "ncp": "^0.5.1",
+        "request": "^2.36.0"
+    },
+    "updated": true
+}

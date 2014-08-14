@@ -1,8 +1,17 @@
 {
   "name": "node-webkit-mac-updater",
   "description": "Update your node-webkit based apps with ease",
-  "keywords": ["node-webkit","mac","updater"],
+  "keywords": [
+    "node-webkit",
+    "mac",
+    "updater"
+  ],
   "author": "Gerwin Brunner <gerwin.brunner@vilango.com>",
+  "main": "./lib/updater.js",
+  "version": "0.0.3",
+  "bugs": {
+    "url": "https://github.com/Vilango/node-webkit-auto-updater/issues"
+  },
   "scripts": {
     "test": "jasmine-node spec"
   },
@@ -11,17 +20,17 @@
     "url": "git://github.com/Vilango/node-webkit-auto-updater.git"
   },
   "dependencies": {
-    "underscore": "*",
-    "fibers": "1.0.1",
-    "request":"~2.40.0"
+    "underscore": "~1.6",
+    "underscore.string": "~2.3",
+    "node-uuid": "~1.4",
+    "fibrous": "0.3.3",
+    "request": "~2.40.0",
+    "fs-extra": "0.11.0"
   },
   "devDependencies": {
-    "jasmine-node": ">= 1.14.5"
+    "jasmine-node": ">= 1.14",
+    "node-webkit-builder": "~0.1"
   },
-  "main": "./lib/updater.js",
-  "version": "0.0.3",
-  "readmeFilename": "README.md",
-  "bugs": {
-    "url": "https://github.com/Vilango/node-webkit-auto-updater/issues"
-  }
+  "homepage": "https://github.com/Vilango/node-webkit-auto-updater",
+  "license": "MIT"
 }

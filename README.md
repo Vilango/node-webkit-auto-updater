@@ -27,13 +27,13 @@ It's upto your application to know whether an update is needed and where to find
 This gives you the oppertunity to ask the user if they wish to update or force an update in the background.
 
 ```js
-var Updater = require('node-webkit-auto-updater');
+var Updater = require('node-webkit-mac-updater');
 
 var updater = new Updater({
     source: {
-      "mac": "http://localhost:3000/releases/updapp/mac/updapp.dmg",
-      "win": "http://localhost:3000/releases/updapp/win/updapp.zip",
-      "linux32": "http://localhost:3000/releases/updapp/linux32/updapp.tar.gz"
+      mac: "http://localhost:3000/releases/updapp/mac/updapp.dmg",
+      win: "http://localhost:3000/releases/updapp/win/updapp.zip",
+      linux: "http://localhost:3000/releases/updapp/linux32/updapp.tar.gz"
     }
 });
 
