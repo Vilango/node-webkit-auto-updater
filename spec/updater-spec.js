@@ -40,6 +40,16 @@ describe("updater.isFileUrl", function () {
     var u = new Updater();
     expect(u.sync.isFileUrl(some_win_file_url)).toBe(true);
   });
+
+  it("should correctly detect invalid url", function(done) {
+    var u = new Updater();
+    u.isFileUrl("http://FAKEURL", function(error, data){
+      expect(error).not.toBe(null);
+      expect(error.message).toBe("Can't read the file form url");
+      done();
+    });
+    
+  });
 }); 
 
 describe("updater.existsUrlForPlatform", function () {
@@ -109,6 +119,15 @@ describe("updater.mount", function () {
     u.sync.unmount( mpoint );
     expect(fs.sync.stat(mountCopy).size).toBe(18317);
     fs.sync.unlink(mountCopy);
+  });
+  it("should fail to mount fake file", function(done) {
+    var mountpointId = "xxxx.mount-"+Math.floor((Math.random() * 10000) + 1);
+    var u = new Updater();
+    u.mount( "FakeFile", mountpointId, function(error){
+      expect(error).not.toBe(null);
+      expect(error.message).toBe("Can't mount file: FakeFile at /Volumes/"+mountpointId);
+      done();
+    });
   });
 });
 
