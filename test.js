@@ -11,16 +11,23 @@ logger.info("logger initialized");
 
 var u = new Updater();
 var tmpId = uuid.v4();
-var tmp_file = u.downloadAsTmpFile( "http://FAKEURL", tmpId , function(err, data){
+
+
+var tmp_file = u.isFileUrl( "http://localhost:3006/TestApp/osx/TestApp.dmg" , function(err, data){
   console.log("Return:",err,data);
 });
 
-args = [1,2,3, {"a":1, "b":2},"ABC"];
+
+// var tmp_file = u.downloadAsTmpFile( "http://FAKEURL", tmpId , function(err, data){
+//   console.log("Return:",err,data);
+// });
+
+// args = [1,2,3, {"a":1, "b":2},"ABC"];
 
 
-util = require('util');
-string = util.format.apply(null, args);
-console.log(string);
+// util = require('util');
+// string = util.format.apply(null, args);
+// console.log(string);
 
 // ue = new UpdaterError("hello", {"xxx":24,}, "123", 4, path);
 // console.log(ue);
