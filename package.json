@@ -13,7 +13,7 @@
     "url": "https://github.com/Vilango/node-webkit-auto-updater/issues"
   },
   "scripts": {
-    "test": "jasmine-node spec"
+    "test": "jasmine-node spec --captureExceptions"
   },
   "repository": {
     "type": "git",
@@ -27,11 +27,16 @@
     "fs-extra": "0.11.0",
     "winston":"*",
     "winston-nssocket":"*",
-    "plist":"~1.0.1"
+    "plist":"~1.0.1",
+    "ncp":"^0.5.1"
   },
   "devDependencies": {
     "fibrous": "0.3.3",
-    "jasmine-node": ">= 1.14",
+    "jasmine-node": { 
+        "type" : "git",
+        "url" : "http://github.com/npm/npm.git",
+        "branch": "Jasmine2.0"
+    },
     "node-webkit-builder": "~0.1"
   },
   "homepage": "https://github.com/Vilango/node-webkit-auto-updater",
