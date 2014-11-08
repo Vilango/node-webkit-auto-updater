@@ -9,7 +9,7 @@ This code is strongly inspired by the following projects:
 
 The following operating systems are supported:
 - OSX
-- Windows (comming soon)
+- Windows
 
 ## Installation
 
@@ -41,4 +41,11 @@ updater.update(function(err){
     if (!err) console.log('App has been updated!');
 });
 
+```
+
+
+
+We use [bunyan](https://github.com/trentm/node-bunyan) as logger 
+```
+tail -f update.log | bunyan -o short
 ```

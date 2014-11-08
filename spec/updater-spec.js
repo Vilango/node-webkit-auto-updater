@@ -3,10 +3,13 @@ jasmine.DEFAULT_TIMEOUT_INTERVAL = (1000*10); // 10 Sekunden
 
 var fs = require('fs-extra');
 
-var winston = require('winston');
-winston.remove(winston.transports.Console);
-winston.add(winston.transports.Console, { level: 'debug', colorize:true } );
-updateLogger = winston.loggers.add('updateLogger',     { console: {label: "updater", level: 'warn', colorize:true } } );
+var bunyan = require('bunyan');
+var logger = bunyan.createLogger({name: "updateLogger"});
+
+// var winston = require('winston');
+// winston.remove(winston.transports.Console);
+// winston.add(winston.transports.Console, { level: 'debug', colorize:true } );
+// updateLogger = winston.loggers.add('updateLogger',     { console: {label: "updater", level: 'warn', colorize:true } } );
 
 var Updater = require("../lib/updater");
 var exec = require('child_process').exec;
@@ -14,8 +17,8 @@ var uuid = require('node-uuid');
 var path = require('path');
 var uuid = require('node-uuid');
 
-winston.error("logger ready to run");
-updateLogger.error("logger ready to run");
+// winston.error("logger ready to run");
+// updateLogger.error("logger ready to run");
 
 //var u = new Updater({source: {mac: "http://downloads.sourceforge.net/project/git-osx-installer/git-2.0.1-intel-universal-snow-leopard.dmg?r=http%3A%2F%2Fgit-scm.com%2Fdownload%2Fmac&ts=1407942206&use_mirror=freefr"} });
 some_js_url = "http://ajax.googleapis.com/ajax/libs/angularjs/1.2.22/angular.min.js";

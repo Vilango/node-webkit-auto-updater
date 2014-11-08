@@ -8,7 +8,7 @@
   ],
   "author": "Gerwin Brunner <gerwin.brunner@vilango.com>",
   "main": "./lib/updater.js",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "bugs": {
     "url": "https://github.com/Vilango/node-webkit-auto-updater/issues"
   },
@@ -23,21 +23,16 @@
     "underscore": "~1.6",
     "underscore.string": "~2.3",
     "node-uuid": "~1.4",
-    "request": "~2.40.0",
+    "request": "~2.47.0",
     "fs-extra": "0.11.0",
-    "winston":"*",
-    "winston-nssocket":"*",
-    "plist":"~1.0.1",
-    "ncp":"^0.5.1"
+    "plist":"~1.1.0",
+    "ncp":"0.5.1",
+    "bunyan": "~1.2.1"
   },
   "devDependencies": {
     "fibrous": "0.3.3",
-    "jasmine-node": { 
-        "type" : "git",
-        "url" : "http://github.com/npm/npm.git",
-        "branch": "Jasmine2.0"
-    },
-    "node-webkit-builder": "~0.1"
+    "jasmine-node": ">= 1.14",
+    "node-webkit-builder": "~0.2"
   },
   "homepage": "https://github.com/Vilango/node-webkit-auto-updater",
   "license": "MIT"
