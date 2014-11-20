@@ -8,7 +8,7 @@
   ],
   "author": "Gerwin Brunner <gerwin.brunner@vilango.com>",
   "main": "./lib/updater.js",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "bugs": {
     "url": "https://github.com/Vilango/node-webkit-auto-updater/issues"
   },
